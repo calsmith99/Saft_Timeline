@@ -1,0 +1,8 @@
+version: '3.8'
+services:
+  saft-playlist-timeline:
+    build:
+      context: .
+    ports:
+      - "5417:80"
+    restart: always

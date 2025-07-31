@@ -117,7 +117,7 @@ const Playlist = () => {
 
             for (let date = new Date(startDate); date <= endDate; date.setDate(date.getDate() + 1)) {
               const dateString = date.toISOString().split('T')[0];
-              const songForDate = songs.find((song) => song.addedAt.startsWith(dateString));
+              const songsForDate = songs.filter((song) => song.addedAt.startsWith(dateString));
               const eventForDate = events.find((event) => event.date === dateString);
 
               if (eventForDate) {
@@ -128,20 +128,22 @@ const Playlist = () => {
                 );
               }
 
-              if (songForDate) {
-                timeline.push(
-                  <li key={`song-${dateString}`} className="flex justify-center items-center">
-                    <SongCard
-                        name={songForDate.name}
-                        artist={songForDate.artist}
-                        addedAt={songForDate.addedAt}
-                        addedByName={songForDate.addedBy.name}
-                        addedByImage={songForDate.addedBy.imageUrl}
-                        albumCover={songForDate.albumCover}
+              if (songsForDate.length > 0) {
+                songsForDate.forEach((song, index) => {
+                  timeline.push(
+                    <li key={`song-${dateString}-${index}`} className="flex justify-center items-center">
+                      <SongCard
+                        name={song.name}
+                        artist={song.artist}
+                        addedAt={song.addedAt}
+                        addedByName={song.addedBy.name}
+                        addedByImage={song.addedBy.imageUrl}
+                        albumCover={song.albumCover}
                         direction={timeline.length % 2 === 0 ? 'left' : 'right'}
-                    />
-                  </li>
-                );
+                      />
+                    </li>
+                  );
+                });
               } else {
                 timeline.push(
                   <li key={`line-${dateString}`}>
