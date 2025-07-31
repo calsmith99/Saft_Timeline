@@ -6,9 +6,6 @@ const getSpotifyAccessToken = async () => {
 
   const tokenUrl = 'https://accounts.spotify.com/api/token';
   const credentials = btoa(`${clientId}:${clientSecret}`);
-    console.log('Client ID:', clientId);
-    console.log('Client Secret:', clientSecret);
-    console.log('Encoded credentials:', credentials);
 
   try {
     const response = await axios.post(
