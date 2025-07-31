@@ -5,4 +5,8 @@ services:
       context: .
     ports:
       - "5417:80"
+    env_file:
+      - stack.env
+    volumes:
+      - ./stack.env:/app/.env
     restart: always

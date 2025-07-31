@@ -13,9 +13,6 @@ RUN npm install
 # Copy the rest of the application
 COPY . .
 
-RUN touch .env && echo "VITE_SPOTIFY_CLIENT_ID=$VITE_SPOTIFY_CLIENT_ID" >> .env && echo "VITE_SPOTIFY_CLIENT_ID=$VITE_SPOTIFY_CLIENT_ID" >> .env
-RUN touch .env && echo "VITE_SPOTIFY_PLAYLIST_ID=$VITE_SPOTIFY_PLAYLIST_ID" >> .env && echo "VITE_SPOTIFY_PLAYLIST_ID=$VITE_SPOTIFY_PLAYLIST_ID" >> .env
-RUN touch .env && echo "VITE_SPOTIFY_CLIENT_SECRET=$VITE_SPOTIFY_CLIENT_SECRET" >> .env && echo "VITE_SPOTIFY_CLIENT_SECRET=$VITE_SPOTIFY_CLIENT_SECRET" >> .env
 
 # Build the React app
 RUN npm run build
