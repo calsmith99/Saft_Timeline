@@ -1,8 +1,8 @@
 import axios from 'axios';
 
 const getSpotifyAccessToken = async () => {
-  const clientId = process.env.VITE_SPOTIFY_CLIENT_ID;
-  const clientSecret = process.env.VITE_SPOTIFY_CLIENT_SECRET;
+  const clientId = import.meta.env.VITE_SPOTIFY_CLIENT_ID;
+  const clientSecret = import.meta.env.VITE_SPOTIFY_CLIENT_SECRET;
 
   const tokenUrl = 'https://accounts.spotify.com/api/token';
   const credentials = btoa(`${clientId}:${clientSecret}`);
