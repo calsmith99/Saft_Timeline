@@ -8,5 +8,5 @@ services:
     env_file:
       - stack.env
     volumes:
-      - ./stack.env:/app/.env
+      - /mnt/storage/AppData/saft-playlist-timeline/.env:/app/.env
     restart: always
