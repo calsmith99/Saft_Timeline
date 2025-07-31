@@ -4,9 +4,6 @@ const getSpotifyAccessToken = async () => {
   const clientId = import.meta.env.VITE_SPOTIFY_CLIENT_ID;
   const clientSecret = import.meta.env.VITE_SPOTIFY_CLIENT_SECRET;
 
-  console.log('Client ID:', clientId);
-  console.log('Client Secret:', clientSecret);
-
   const tokenUrl = 'https://accounts.spotify.com/api/token';
   const credentials = btoa(`${clientId}:${clientSecret}`);
 
